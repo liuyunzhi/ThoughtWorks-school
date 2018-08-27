@@ -9,8 +9,8 @@ class FocusPage extends Component {
     return (
       <Layout>
         <MyFocus selectedKeys={['2']}></MyFocus>
-        <Content style={{ padding: '0 24px', minHeight: 280 }}>
-          content2
+        <Content style={{ padding: '0 24px', minHeight: 280 , background: '#fff'}}>
+          content2 
         </Content>
       </Layout>
     );

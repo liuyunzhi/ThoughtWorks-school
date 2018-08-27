@@ -9,7 +9,7 @@ class LogPage extends Component {
     return (
       <Layout>
         <MyLog selectedKeys={['1']}></MyLog>
-        <Content style={{ padding: '0 24px', minHeight: 280 }}>
+        <Content style={{ padding: '0 24px', minHeight: 280 , background: '#fff'}}>
           content1
         </Content>
       </Layout>

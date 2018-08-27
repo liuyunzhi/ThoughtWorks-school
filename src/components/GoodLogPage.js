@@ -9,7 +9,7 @@ class GoodLogPage extends Component {
     return (
       <Layout>
         <GoodLog selectedKeys={['3']}></GoodLog>
-        <Content style={{ padding: '0 24px', minHeight: 280 }}>
+        <Content style={{ padding: '0 24px', minHeight: 280 , background: '#fff'}}>
           content3
         </Content>
       </Layout>

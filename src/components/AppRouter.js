@@ -8,7 +8,7 @@ class AppRouter extends Component {
     render() {
         return (      
             <div>
-              <Route  exact path="/log" component={LogPage}/>
+              <Route  exact path="/" component={LogPage}/>
               <Route  path="/focus" component={FocusPage}/>
               <Route  path="/goodLog" component={GoodLogPage}/>
             </div>

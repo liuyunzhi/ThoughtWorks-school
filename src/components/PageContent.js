@@ -22,7 +22,7 @@ const PageContent =  ({selectedKeys}) => {
             style={{ height: '100%' }}
           >
               <Menu.Item key="1">                
-                <Link to="/log">我的日志&nbsp;&nbsp;&nbsp;<Icon type="edit" /></Link>
+                <Link to="/">我的日志&nbsp;&nbsp;&nbsp;<Icon type="edit" /></Link>
               </Menu.Item>
               <Menu.Item key="2">
                 <Link to="/focus">我的关注&nbsp;&nbsp;&nbsp;<Icon type="file-text" /></Link>
