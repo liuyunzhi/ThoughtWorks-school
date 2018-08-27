@@ -1,10 +1,11 @@
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const { Content,Sider } = Layout;
 
 
-const PageContent = () => {
+const PageContent =  ({selectedKeys}) => {
   return (
     <Content style={{ padding: '0 50px',background: '#ececec'}}>
       <Breadcrumb style={{ margin: '16px 0' }}>
@@ -16,18 +17,21 @@ const PageContent = () => {
         <Sider width={200} style={{ background: '#fff' }}>
           <Menu
             mode="inline"
-            defaultSelectedKeys={['1']}
+            defaultSelectedKeys={selectedKeys}
             defaultOpenKeys={['sub1']}
             style={{ height: '100%' }}
           >
-              <Menu.Item key="1">我的日志&nbsp;&nbsp;&nbsp;<Icon type="edit" /></Menu.Item>
-              <Menu.Item key="2">我的关注&nbsp;&nbsp;&nbsp;<Icon type="file-text" /></Menu.Item>
-              <Menu.Item key="3">优秀日志&nbsp;&nbsp;&nbsp;<Icon type="star-o" /></Menu.Item>
+              <Menu.Item key="1">                
+                <Link to="/log">我的日志&nbsp;&nbsp;&nbsp;<Icon type="edit" /></Link>
+              </Menu.Item>
+              <Menu.Item key="2">
+                <Link to="/focus">我的关注&nbsp;&nbsp;&nbsp;<Icon type="file-text" /></Link>
+              </Menu.Item>
+              <Menu.Item key="3">
+                <Link to="/goodLog">优秀日志&nbsp;&nbsp;&nbsp;<Icon type="star-o" /></Link>
+              </Menu.Item>
           </Menu>
         </Sider>
-        <Content style={{ padding: '0 24px', minHeight: 280 }}>
-          Content
-        </Content>
       </Layout>
     </Content>);
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import PageConten from './components/PageContent';
 import PageFooter from './components/PageFooter';
 import PageHeader from './components/PageHeader';
+import AppRouter from './components/AppRouter';
 import { Layout } from 'antd';
 import './App.css';
 import './index.css';
@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <Layout>
         <PageHeader />
-        <PageConten/>
+        <AppRouter/>
         <PageFooter/>
       </Layout>
     );
