@@ -5,8 +5,8 @@ const { Footer } = Layout;
 
 const PageFooter = () => {
   return (
-    <Footer style={{ textAlign: 'center' }}>
-      Ant Design ©2018 Created by Ant UED
+    <Footer style={{ textAlign: 'center',background: '#ececec' }}>
+      ThoughtWorks School ©2018
     </Footer>);
 }
 
