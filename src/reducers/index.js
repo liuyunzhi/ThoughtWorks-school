@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux';
-import diaries from './diaries';
+import { combineReducers } from 'redux'
+import diaries from './diaries'
 
 export default combineReducers({
-    diaries
+	diaries
 })
