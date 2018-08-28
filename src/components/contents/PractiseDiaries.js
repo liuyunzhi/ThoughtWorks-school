@@ -1,4 +1,5 @@
-import React, { connect } from 'react-redux'
+import { connect } from 'react-redux'
+import React from 'react'
 import NewDiary from './NewDiary'
 
 const PractiseDiaries = ({ addDiaryHandle } = this.props) => {
