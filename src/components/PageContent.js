@@ -5,7 +5,7 @@ import PageBreadcrumb from './PageBreadcrumb';
 import SiderLink from './SiderLink';
 import ContentRouter from './ContentRouter';
 
-const { Content } = Layout;
+const { Content, Sider } = Layout;
 
 
 const PageContent = () => {
@@ -14,8 +14,12 @@ const PageContent = () => {
       <PageBreadcrumb />
       <Router>
         <Layout style={{ padding: '24px 0', background: '#fff' }}>
-          <SiderLink />
-          <ContentRouter />
+          <Sider width={200} style={{ background: '#fff' }}>
+            <SiderLink />
+          </Sider>
+          <Content style={{ padding: '0 24px', minHeight: 280, background: '#fff' }}>
+            <ContentRouter />
+          </Content>
         </Layout>
       </Router>
     </Content>);

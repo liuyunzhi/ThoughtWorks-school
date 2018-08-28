@@ -6,9 +6,9 @@ const { Content } = Layout;
 class Followees extends Component {
   render() {
     return (
-      <Content style={{ padding: '0 24px', minHeight: 280, background: '#fff' }}>
+      <div>
         content2
-      </Content>
+      </div>
     );
   }
 }

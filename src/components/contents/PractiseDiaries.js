@@ -1,17 +1,32 @@
 import { Layout } from 'antd';
-import React, { Component } from 'react';
-import NewCard from './NewCard';
+import React from 'react';
+import { connect } from 'react-redux';
+import NewDiary from './NewDiary';
 
 const { Content } = Layout;
 
-class PractiseDiaries extends Component {
-  render() {
-    return (
-      <Content style={{ padding: '0 24px', minHeight: 280, background: '#fff' }}>
-        <NewCard />
-      </Content>
-    );
-  }
+const PractiseDiaries = ({ addDiaryHandle }) => {
+  return (
+    <div>
+      <NewDiary addDiaryHandle={addDiaryHandle} />
+    </div>
+  );
 }
 
-export default PractiseDiaries;
+const mapStateToProps = () => {}
+
+const mapDispatchToProps = (dispatch) => ({
+  addDiaryHandle: (date, content) => {
+    dispatch(
+      {
+        type: 'ADD_DIARY',
+        data: {
+          date: date,
+          content: content
+        }
+      }
+    )
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PractiseDiaries);
