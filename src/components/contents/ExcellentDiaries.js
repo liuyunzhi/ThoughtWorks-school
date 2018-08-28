@@ -1,18 +1,14 @@
-import { Layout} from 'antd';
-import React, {Component} from 'react';
-import GoodLog from '../PageContent';
+import { Layout } from 'antd';
+import React, { Component } from 'react';
 
-const {Content} = Layout;
+const { Content } = Layout;
 
 class ExcellentDiaries extends Component {
   render() {
     return (
-      <Layout>
-        <GoodLog selectedKeys={['3']}></GoodLog>
-        <Content style={{ padding: '0 24px', minHeight: 280 , background: '#fff'}}>
-          content3
-        </Content>
-      </Layout>
+      <Content style={{ padding: '0 24px', minHeight: 280, background: '#fff' }}>
+        content3
+      </Content>
     );
   }
 }

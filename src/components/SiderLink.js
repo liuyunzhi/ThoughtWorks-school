@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 
 const { Sider } = Layout;
 
-const SiderLink = ({ selectedKeys }) => {
+const SiderLink = () => {
     return (
         <Sider width={200} style={{ background: '#fff' }}>
             <Menu mode="inline"
-                defaultSelectedKeys={selectedKeys}
+                defaultSelectedKeys={['1']}
                 defaultOpenKeys={['sub1']}
                 style={{ height: '100%' }} >
                 <Menu.Item key="1">

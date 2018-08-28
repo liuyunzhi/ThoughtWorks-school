@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
-import { Layout } from 'antd';
 import PractiseDiaries from './contents/PractiseDiaries'
 import Followees from './contents/Followees'
 import ExcellentDiaries from './contents/ExcellentDiaries'
-import { Route } from 'react-router-dom';
-
-const { Content } = Layout;
+import { Route , Switch} from 'react-router-dom';
 
 class ContentRouter extends Component {
     render() {
         return (
-            <Content>
-                <Route exact path="/practise-diaries" component={PractiseDiaries} />
+            <Switch>
+                <Route exact path="/" component={PractiseDiaries} />
+                <Route path="/practise-diaries" component={PractiseDiaries} />
                 <Route path="/followees" component={Followees} />
                 <Route path="/excellent-diaries" component={ExcellentDiaries} />
-            </Content>
+            </Switch>
         );
     }
 }

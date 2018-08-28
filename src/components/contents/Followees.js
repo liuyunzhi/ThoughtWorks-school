@@ -1,18 +1,14 @@
-import { Layout} from 'antd';
-import React, {Component} from 'react';
-import MyFocus from '../PageContent';
+import { Layout } from 'antd';
+import React, { Component } from 'react';
 
-const {Content} = Layout;
+const { Content } = Layout;
 
 class Followees extends Component {
   render() {
     return (
-      <Layout>
-        <MyFocus selectedKeys={['2']}></MyFocus>
-        <Content style={{ padding: '0 24px', minHeight: 280 , background: '#fff'}}>
-          content2 
-        </Content>
-      </Layout>
+      <Content style={{ padding: '0 24px', minHeight: 280, background: '#fff' }}>
+        content2
+      </Content>
     );
   }
 }
