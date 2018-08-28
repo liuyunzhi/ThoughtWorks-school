@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import PageFooter from './components/PageFooter';
-import PageHeader from './components/PageHeader';
-import AppRouter from './components/AppRouter';
 import { Layout } from 'antd';
+import PageHeader from './components/PageHeader';
+import PageContent from './components/PageContent';
+import PageFooter from './components/PageFooter';
 import './App.css';
 import './index.css';
 
@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <Layout>
         <PageHeader />
-        <AppRouter/>
+        <PageContent/>
         <PageFooter/>
       </Layout>
     );

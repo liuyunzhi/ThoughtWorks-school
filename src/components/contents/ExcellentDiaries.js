@@ -1,20 +1,20 @@
 import { Layout} from 'antd';
 import React, {Component} from 'react';
-import MyLog from './PageContent';
+import GoodLog from '../PageContent';
 
 const {Content} = Layout;
 
-class LogPage extends Component {
+class ExcellentDiaries extends Component {
   render() {
     return (
       <Layout>
-        <MyLog selectedKeys={['1']}></MyLog>
+        <GoodLog selectedKeys={['3']}></GoodLog>
         <Content style={{ padding: '0 24px', minHeight: 280 , background: '#fff'}}>
-          content1
+          content3
         </Content>
       </Layout>
     );
   }
 }
 
-export default LogPage;
+export default ExcellentDiaries;
