@@ -34,7 +34,6 @@ class NewDiary extends Component {
 	}
 
 	render() {
-		const addDiaryHandle = this.props
 		return (
 			<Card title="新的日志"
 				extra={<a href="https://school.thoughtworks.cn/bbs/topic/1230/%E5%A6%82%E4%BD%95%E5%86%99%E4%B8%80%E7%AF%87%E4%BC%98%E7%A7%80%E7%9A%84%E6%88%90%E9%95%BF%E6%97%A5%E5%BF%97"
@@ -58,7 +57,7 @@ class NewDiary extends Component {
 					<Row gutter={24} type="flex" justify="end">
 						<Col >
 							<Button type="primary" ghost
-								onClick={() => addDiaryHandle(this.state.date, this.state.content)}>
+								onClick={() => this.props.addDiaryHandle(this.state.date, this.state.content)}>
 								提交
 							</Button>
 						</Col>

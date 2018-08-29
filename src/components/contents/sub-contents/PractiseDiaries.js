@@ -1,16 +1,27 @@
 import { connect } from 'react-redux'
 import React from 'react'
+import { List } from 'antd'
 import NewDiary from './NewDiary'
+import MyDiary from './MyDiary'
 
-const PractiseDiaries = ({ addDiaryHandle } = this.props) => {
+const PractiseDiaries = ({ addDiaryHandle, diaries } = this.props) => {
 	return (
-		<div>
-			<NewDiary addDiaryHandle={addDiaryHandle} />
-		</div>
+		<List
+			header={<NewDiary addDiaryHandle={addDiaryHandle} />}
+			grid={{ gutter: 24 }}
+			dataSource={diaries}
+			renderItem={item => (
+				<List.Item>
+					<MyDiary item={item} />
+				</List.Item>
+			)}
+		/>
 	)
 }
 
-const mapStateToProps = () => { }
+const mapStateToProps = ({ diaries }) => ({
+	diaries: diaries
+})
 
 const mapDispatchToProps = (dispatch) => ({
 	addDiaryHandle: (date, content) => {

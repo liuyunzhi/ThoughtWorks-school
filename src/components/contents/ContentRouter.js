@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import PractiseDiaries from './contents/PractiseDiaries'
-import Followees from './contents/Followees'
-import ExcellentDiaries from './contents/ExcellentDiaries'
 import { Route , Switch} from 'react-router-dom'
+import PractiseDiaries from './sub-contents/PractiseDiaries'
+import Followees from './sub-contents/Followees'
+import ExcellentDiaries from './sub-contents/ExcellentDiaries'
 
 class ContentRouter extends Component {
 	render() {

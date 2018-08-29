@@ -1,8 +1,4 @@
-const initState = [
-
-]
-
-const diaries = (state = initState, action) => {
+const diaries = (state = [], action) => {
 	switch (action.type) {
 	case 'ADD_DIARY': {
 		const newState = [...state]
