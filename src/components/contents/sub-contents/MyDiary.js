@@ -21,7 +21,9 @@ const MyDiary = ({ item, deleteDiaryHandle } = this.props) => {
 					</Button>
 				</Col>
 				<Col>
-					<Button>评论日志</Button>
+					<Button type="primary" ghost>
+						评论日志
+					</Button>
 				</Col>
 			</Row>
 		</Card >

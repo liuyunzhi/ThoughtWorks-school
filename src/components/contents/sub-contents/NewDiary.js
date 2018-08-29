@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Card, Form, DatePicker, Input, Button, Row, Col } from 'antd'
+import moment from 'moment'
 
 const { TextArea } = Input
 
@@ -17,20 +18,25 @@ const formItemLayout = {
 class NewDiary extends Component {
 	constructor(props) {
 		super(props)
-		this.contentHandle = this.contentHandle.bind(this)
-		this.dateHandle = this.dateHandle.bind(this)
+		this.handleContent = this.handleContent.bind(this)
+		this.handleDate = this.handleDate.bind(this)
+		this.handleCancel = this.handleCancel.bind(this)
 		this.state = {
-			content: '## 我做了什么 ## 学了什么 ## 有什么印象深刻的收获',
-			date: ''
+			content: '## 我做了什么\n## 学了什么\n## 有什么印象深刻的收获',
+			date: moment(Date.now()).format('YYYY/MM/DD')
 		}
 	}
 
-	contentHandle(e) {
+	handleContent(e) {
 		this.setState({ content: e.target.value })
 	}
 
-	dateHandle(date, dateString) {
+	handleDate(date, dateString) {
 		this.setState({ date: dateString })
+	}
+
+	handleCancel() {
+		this.setState({content: ''})
 	}
 
 	render() {
@@ -44,14 +50,15 @@ class NewDiary extends Component {
 				<Form>
 					<Form.Item {...formItemLayout} label="日期">
 						<DatePicker format={'YYYY/MM/DD'}
-							onChange={this.dateHandle} />
+							defaultValue={moment(Date.now())}
+							onChange={this.handleDate} />
 					</Form.Item>
 					<Form.Item {...formItemLayout} label="总结内容">
 						<TextArea rows={5}
 							size="large"
 							className="ant-input"
 							value={this.state.content}
-							onChange={this.contentHandle}>
+							onChange={this.handleContent}>
 						</TextArea>
 					</Form.Item>
 					<Row gutter={24} type="flex" justify="end">
@@ -62,7 +69,7 @@ class NewDiary extends Component {
 							</Button>
 						</Col>
 						<Col>
-							<Button>取消</Button>
+							<Button onClick={this.handleCancel}>取消</Button>
 						</Col>
 					</Row>
 				</Form>

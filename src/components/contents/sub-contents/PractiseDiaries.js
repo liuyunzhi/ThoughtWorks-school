@@ -4,15 +4,15 @@ import { List } from 'antd'
 import NewDiary from './NewDiary'
 import MyDiary from './MyDiary'
 
-const PractiseDiaries = ({ addDiaryHandle, diaries } = this.props) => {
+const PractiseDiaries = ({ addDiaryHandle, diaries, deleteDiaryHandle } = this.props) => {
 	return (
 		<List
 			header={<NewDiary addDiaryHandle={addDiaryHandle} />}
 			grid={{ gutter: 24 }}
 			dataSource={diaries}
-			renderItem={item => (
+			renderItem={(item, index) => (
 				<List.Item>
-					<MyDiary item={item} />
+					<MyDiary item={item} index={index} deleteDiaryHandle={deleteDiaryHandle} />
 				</List.Item>
 			)}
 		/>
@@ -32,6 +32,14 @@ const mapDispatchToProps = (dispatch) => ({
 					date: date,
 					content: content
 				}
+			}
+		)
+	},
+	deleteDiaryHandle: (index) => {
+		dispatch(
+			{
+				type: 'DELETE_DIARY',
+				data: index
 			}
 		)
 	}
