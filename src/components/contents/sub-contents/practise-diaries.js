@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
 import React from 'react'
 import { List } from 'antd'
-import NewDiary from './NewDiary'
-import MyDiary from './MyDiary'
+import NewDiary from './new-diary'
+import MyDiary from './my-diary'
 
 const PractiseDiaries = ({ addDiaryHandle, diaries, deleteDiaryHandle } = this.props) => {
 	return (

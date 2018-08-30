@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Layout, Breadcrumb } from 'antd'
+import { Layout } from 'antd'
 import { HashRouter as Router } from 'react-router-dom'
 import HeaderContent from './components/header/header-content'
 import BreadcrumbRouter from './components/contents/breadcrumb-router'
@@ -20,11 +20,7 @@ class App extends Component {
 				<Content style={{ padding: '0 50px', background: '#ececec' }}>
 					<Router>
 						<div>
-							<Breadcrumb style={{ margin: '16px 0' }}>
-								<Breadcrumb.Item>思特沃克学院</Breadcrumb.Item>
-								<Breadcrumb.Item>成长日志</Breadcrumb.Item>
-								<BreadcrumbRouter />
-							</Breadcrumb>
+							<BreadcrumbRouter />
 							<Layout style={{ padding: '24px 0', background: '#fff' }}>
 								<Sider width={200} style={{ background: '#fff' }}>
 									<SiderLink />
