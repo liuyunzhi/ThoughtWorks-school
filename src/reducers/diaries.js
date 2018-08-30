@@ -9,6 +9,15 @@ const diaries = (state = [], action) => {
 		newState.splice(action.data, 1)
 		return newState
 	}
+	case 'UPDATE_DIARY': {
+		return newState.map((item, index) => {
+			return index === action.data.index
+				? Object.assign(item, {
+					content: action.data.content,
+					date: action.data.date
+				}) : item
+		})
+	}
 	default:
 		return state
 	}

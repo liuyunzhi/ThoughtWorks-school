@@ -1,18 +1,22 @@
 import { connect } from 'react-redux'
 import React from 'react'
 import { List } from 'antd'
-import NewDiary from './new-diary'
-import MyDiary from './my-diary'
+import DiaryNewCard from './diary-new-card'
+import DiaryDisplayCard from './diary-display-card'
 
-const PractiseDiaries = ({ addDiaryHandle, diaries, deleteDiaryHandle } = this.props) => {
+const PractiseDiaries = ({ addDiaryHandle, diaries, deleteDiaryHandle, updateDiaryHandle } = this.props) => {
 	return (
 		<List
-			header={<NewDiary addDiaryHandle={addDiaryHandle} />}
+			header={<DiaryNewCard addDiaryHandle={addDiaryHandle} />}
 			grid={{ gutter: 24 }}
 			dataSource={diaries}
 			renderItem={(item, index) => (
 				<List.Item>
-					<MyDiary item={item} index={index} deleteDiaryHandle={deleteDiaryHandle} />
+					<DiaryDisplayCard
+						item={item}
+						index={index}
+						deleteDiaryHandle={deleteDiaryHandle}
+						updateDiaryHandle={updateDiaryHandle} />
 				</List.Item>
 			)}
 		/>
@@ -40,6 +44,18 @@ const mapDispatchToProps = (dispatch) => ({
 			{
 				type: 'DELETE_DIARY',
 				data: index
+			}
+		)
+	},
+	updateDiaryHandle: (index, date, content) => {
+		dispatch(
+			{
+				type: 'UPDATE_DIARY',
+				data: {
+					index: index,
+					date: date,
+					content: content
+				}
 			}
 		)
 	}
