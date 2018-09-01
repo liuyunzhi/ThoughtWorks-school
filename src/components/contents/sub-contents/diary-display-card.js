@@ -15,7 +15,7 @@ class DiaryDisplayCard extends Component {
 		this.state = {
 			isEdit: false,
 			content: this.props.item.content,
-			date: moment(this.props.item.date, 'YYYY/MM/DD')
+			date: moment(this.props.item.date, 'YYYY-MM-DD')
 		}
 	}
 
@@ -32,7 +32,7 @@ class DiaryDisplayCard extends Component {
 	}
 
 	handleConfirm() {
-		this.props.updateDiaryHandle(this.props.index, this.state.date.format('YYYY/MM/DD'), this.state.content)
+		this.props.updateDiaryHandle(this.props.item.id, this.state.date.format('YYYY-MM-DD'), this.state.content)
 		this.setState({ isEdit: false })
 	}
 
@@ -46,7 +46,7 @@ class DiaryDisplayCard extends Component {
 				<Card title={this.props.item.date + '的日志'}
 					extra={
 						<Popconfirm title="确定删除吗？"
-							onConfirm={() => this.props.deleteDiaryHandle(this.props.index)}
+							onConfirm={() => this.props.deleteDiaryHandle(this.props.item.id)}
 							okText="确定"
 							cancelText="取消">
 							<Icon type="close" />
