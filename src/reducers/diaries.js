@@ -1,8 +1,12 @@
-const diaries = (state = [], action) => {
-	const newState = [...state]
+const diaries = (state = {}, action) => {
+	const newState = Object.assign({}, state)
 	switch (action.type) {
+	case 'LOAD_DIARIES': {
+		return action.data
+	}
 	case 'ADD_DIARY': {
-		newState.push(action.data)
+		newState.content.unshift(action.data)
+		newState.content.pop()
 		return newState
 	}
 	case 'DELETE_DIARY': {

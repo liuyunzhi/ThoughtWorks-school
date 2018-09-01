@@ -1,64 +1,50 @@
+import React, { Component } from 'react'
+import { List, Pagination } from 'antd'
 import { connect } from 'react-redux'
-import React from 'react'
-import { List } from 'antd'
 import DiaryNewCard from './diary-new-card'
 import DiaryDisplayCard from './diary-display-card'
+import { addDiaryHandle, deleteDiaryHandle, updateDiaryHandle, loadDiariesHandle, pageHandle } from '../../../actions/diaries'
 
-const PractiseDiaries = ({ addDiaryHandle, diaries, deleteDiaryHandle, updateDiaryHandle } = this.props) => {
-	return (
-		<List
-			header={<DiaryNewCard addDiaryHandle={addDiaryHandle} />}
-			grid={{ gutter: 24 }}
-			dataSource={diaries}
-			renderItem={(item, index) => (
-				<List.Item>
-					<DiaryDisplayCard
-						item={item}
-						index={index}
-						deleteDiaryHandle={deleteDiaryHandle}
-						updateDiaryHandle={updateDiaryHandle} />
-				</List.Item>
-			)}
-		/>
-	)
+class PractiseDiaries extends Component {
+
+	componentWillMount() {
+		let { loadDiariesHandle } = this.props
+		loadDiariesHandle()
+	}
+
+	render() {
+		const { addDiaryHandle, diaries, deleteDiaryHandle, updateDiaryHandle, pageHandle } = this.props
+		return (
+			<div>
+				<List
+					header={<DiaryNewCard addDiaryHandle={addDiaryHandle} />}
+					grid={{ gutter: 24 }}
+					dataSource={diaries.content}
+					renderItem={item => (
+						<List.Item>
+							<DiaryDisplayCard
+								item={item}
+								deleteDiaryHandle={deleteDiaryHandle}
+								updateDiaryHandle={updateDiaryHandle} />
+						</List.Item>
+					)}
+				/>
+				<Pagination current={diaries.number + 1} onChange={pageHandle} total={diaries.totalElements} />
+			</div>
+		)
+	}
 }
 
 const mapStateToProps = ({ diaries }) => ({
 	diaries: diaries
 })
 
-const mapDispatchToProps = (dispatch) => ({
-	addDiaryHandle: (date, content) => {
-		dispatch(
-			{
-				type: 'ADD_DIARY',
-				data: {
-					date: date,
-					content: content
-				}
-			}
-		)
-	},
-	deleteDiaryHandle: (index) => {
-		dispatch(
-			{
-				type: 'DELETE_DIARY',
-				data: index
-			}
-		)
-	},
-	updateDiaryHandle: (index, date, content) => {
-		dispatch(
-			{
-				type: 'UPDATE_DIARY',
-				data: {
-					index: index,
-					date: date,
-					content: content
-				}
-			}
-		)
-	}
-})
+const mapDispatchToProps = {
+	loadDiariesHandle,
+	addDiaryHandle,
+	deleteDiaryHandle,
+	updateDiaryHandle,
+	pageHandle
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(PractiseDiaries)
