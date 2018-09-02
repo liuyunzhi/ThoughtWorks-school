@@ -29,7 +29,10 @@ class DiaryNewCard extends Component {
 	}
 
 	handleConfirm() {
-		this.props.addDiaryHandle(this.state.date.format('YYYY-MM-DD'), this.state.content)
+		this.props.addDiaryHandle(
+			this.state.date.format('YYYY-MM-DD'),
+			this.state.content
+		)
 	}
 
 	render() {
@@ -37,20 +40,24 @@ class DiaryNewCard extends Component {
 			<Card
 				title="新的日志"
 				extra={
-					<a href="https://school.thoughtworks.cn/bbs/topic/1230/%E5%A6%82%E4%BD%95%E5%86%99%E4%B8%80%E7%AF%87%E4%BC%98%E7%A7%80%E7%9A%84%E6%88%90%E9%95%BF%E6%97%A5%E5%BF%97"
+					<a
+						href="https://school.thoughtworks.cn/bbs/topic/1230/%E5%A6%82%E4%BD%95%E5%86%99%E4%B8%80%E7%AF%87%E4%BC%98%E7%A7%80%E7%9A%84%E6%88%90%E9%95%BF%E6%97%A5%E5%BF%97"
 						rel="noopener noreferrer"
-						target="_blank">
+						target="_blank"
+					>
 						如何写一篇优秀的成长日志
 					</a>
-				} >
+				}
+			>
 				<DiaryEditForm
 					date={this.state.date}
 					content={this.state.content}
 					handleContent={this.handleContent}
 					handleDate={this.handleDate}
 					handleCancel={this.handleCancel}
-					handleConfirm={this.handleConfirm} />
-			</Card >
+					handleConfirm={this.handleConfirm}
+				/>
+			</Card>
 		)
 	}
 }

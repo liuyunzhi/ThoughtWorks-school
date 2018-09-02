@@ -8,14 +8,12 @@ import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 import './index.css'
 
-const store = createStore(
-	reducers,
-	applyMiddleware(thunkMiddleware),
-)
+const store = createStore(reducers, applyMiddleware(thunkMiddleware))
 
-ReactDOM.render((
+ReactDOM.render(
 	<Provider store={store}>
 		<App />
-	</Provider>
-), document.getElementById('root'))
+	</Provider>,
+	document.getElementById('root')
+)
 registerServiceWorker()

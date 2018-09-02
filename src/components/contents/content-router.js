@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route , Switch} from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import PractiseDiaries from './sub-contents/practise-diaries'
 import Followees from './sub-contents/followees'
 import ExcellentDiaries from './sub-contents/excellent-diaries'

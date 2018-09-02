@@ -3,17 +3,28 @@ import { List, Pagination } from 'antd'
 import { connect } from 'react-redux'
 import DiaryNewCard from './diary-new-card'
 import DiaryDisplayCard from './diary-display-card'
-import { addDiaryHandle, deleteDiaryHandle, updateDiaryHandle, loadDiariesHandle, pageHandle } from '../../../actions/diaries'
+import {
+	addDiaryHandle,
+	deleteDiaryHandle,
+	updateDiaryHandle,
+	loadDiariesHandle,
+	pageHandle
+} from '../../../actions/diaries'
 
 class PractiseDiaries extends Component {
-
 	componentWillMount() {
 		let { loadDiariesHandle } = this.props
 		loadDiariesHandle()
 	}
 
 	render() {
-		const { addDiaryHandle, diaries, deleteDiaryHandle, updateDiaryHandle, pageHandle } = this.props
+		const {
+			addDiaryHandle,
+			diaries,
+			deleteDiaryHandle,
+			updateDiaryHandle,
+			pageHandle
+		} = this.props
 		return (
 			<div>
 				<List
@@ -25,11 +36,16 @@ class PractiseDiaries extends Component {
 							<DiaryDisplayCard
 								item={item}
 								deleteDiaryHandle={deleteDiaryHandle}
-								updateDiaryHandle={updateDiaryHandle} />
+								updateDiaryHandle={updateDiaryHandle}
+							/>
 						</List.Item>
 					)}
 				/>
-				<Pagination current={diaries.number + 1} onChange={pageHandle} total={diaries.totalElements} />
+				<Pagination
+					current={diaries.number + 1}
+					onChange={pageHandle}
+					total={diaries.totalElements}
+				/>
 			</div>
 		)
 	}
@@ -47,4 +63,7 @@ const mapDispatchToProps = {
 	pageHandle
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PractiseDiaries)
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(PractiseDiaries)

@@ -25,7 +25,13 @@ class App extends Component {
 								<Sider width={200} style={{ background: '#fff' }}>
 									<SiderLink />
 								</Sider>
-								<Content style={{ padding: '0 24px', minHeight: 280, background: '#fff' }}>
+								<Content
+									style={{
+										padding: '0 24px',
+										minHeight: 280,
+										background: '#fff'
+									}}
+								>
 									<ContentRouter />
 								</Content>
 							</Layout>

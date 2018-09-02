@@ -32,7 +32,11 @@ class DiaryDisplayCard extends Component {
 	}
 
 	handleConfirm() {
-		this.props.updateDiaryHandle(this.props.item.id, this.state.date.format('YYYY-MM-DD'), this.state.content)
+		this.props.updateDiaryHandle(
+			this.props.item.id,
+			this.state.date.format('YYYY-MM-DD'),
+			this.state.content
+		)
 		this.setState({ isEdit: false })
 	}
 
@@ -43,23 +47,24 @@ class DiaryDisplayCard extends Component {
 	render() {
 		return (
 			<div>
-				<Card title={this.props.item.date + '的日志'}
+				<Card
+					title={this.props.item.date + '的日志'}
 					extra={
-						<Popconfirm title="确定删除吗？"
+						<Popconfirm
+							title="确定删除吗？"
 							onConfirm={() => this.props.deleteDiaryHandle(this.props.item.id)}
 							okText="确定"
-							cancelText="取消">
+							cancelText="取消"
+						>
 							<Icon type="close" />
 						</Popconfirm>
 					}
-					style={{ display: this.state.isEdit ? 'none' : 'block' }} >
+					style={{ display: this.state.isEdit ? 'none' : 'block' }}
+				>
 					<Markdown source={this.props.item.content} />
 					<Row gutter={24} type="flex" justify="end">
-						<Col >
-							<Button
-								type="primary"
-								onClick={this.handleUpdate}
-								ghost>
+						<Col>
+							<Button type="primary" onClick={this.handleUpdate} ghost>
 								修改日志
 							</Button>
 						</Col>
@@ -69,11 +74,12 @@ class DiaryDisplayCard extends Component {
 							</Button>
 						</Col>
 					</Row>
-				</Card >
+				</Card>
 				<Card
 					title="修改成长日志"
 					hoverable={true}
-					style={{ display: this.state.isEdit ? 'block' : 'none'}} >
+					style={{ display: this.state.isEdit ? 'block' : 'none' }}
+				>
 					<DiaryEditForm
 						date={this.state.date}
 						content={this.state.content}
@@ -81,8 +87,9 @@ class DiaryDisplayCard extends Component {
 						handleDate={this.handleDate}
 						handleCancel={this.handleCancel}
 						handleConfirm={this.handleConfirm}
-						addDiaryHandle={this.handleUpdate} />
-				</Card >
+						addDiaryHandle={this.handleUpdate}
+					/>
+				</Card>
 			</div>
 		)
 	}
