@@ -30,7 +30,7 @@ class DiaryNewCard extends Component {
 
 	handleConfirm() {
 		this.props.addDiaryHandle(
-			this.state.date.format('YYYY-MM-DD'),
+			this.state.date.format('YYYY/MM/DD'),
 			this.state.content
 		)
 	}

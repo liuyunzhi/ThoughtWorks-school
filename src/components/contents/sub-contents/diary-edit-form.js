@@ -27,7 +27,7 @@ const DiaryEditForm = (
 	return (
 		<Form>
 			<Form.Item {...formItemLayout} label="日期">
-				<DatePicker format={'YYYY-MM-DD'} value={date} onChange={handleDate} />
+				<DatePicker format={'YYYY/MM/DD'} value={date} onChange={handleDate} />
 			</Form.Item>
 			<Form.Item {...formItemLayout} label="总结内容">
 				<TextArea
