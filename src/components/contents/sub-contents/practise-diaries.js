@@ -12,7 +12,7 @@ import {
 } from '../../../actions/diaries'
 
 class PractiseDiaries extends Component {
-	componentWillMount() {
+	componentDidMount() {
 		let { loadDiariesHandle } = this.props
 		loadDiariesHandle()
 	}
@@ -34,6 +34,7 @@ class PractiseDiaries extends Component {
 					renderItem={item => (
 						<List.Item>
 							<DiaryDisplayCard
+								key={item.id}
 								item={item}
 								deleteDiaryHandle={deleteDiaryHandle}
 								updateDiaryHandle={updateDiaryHandle}
