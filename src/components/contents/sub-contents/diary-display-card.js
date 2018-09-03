@@ -19,6 +19,13 @@ class DiaryDisplayCard extends Component {
 		}
 	}
 
+	componentWillReceiveProps(props) {
+		this.setState({
+			content: props.item.content,
+			date: moment(props.item.date, 'YYYY/MM/DD')
+		})
+	}
+
 	handleContent(e) {
 		this.setState({ content: e.target.value })
 	}
