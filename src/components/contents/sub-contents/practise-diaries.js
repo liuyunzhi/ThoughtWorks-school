@@ -4,11 +4,11 @@ import { connect } from 'react-redux'
 import DiaryNewCard from './diary-new-card'
 import DiaryDisplayCard from './diary-display-card'
 import {
-	addDiaryHandle,
-	deleteDiaryHandle,
-	updateDiaryHandle,
-	loadDiariesHandle,
-	pageHandle
+	loadDiariesAction,
+	addDiaryAction,
+	deleteDiaryAction,
+	updateDiaryAction,
+	pageAction
 } from '../../../actions/diaries'
 
 class PractiseDiaries extends Component {
@@ -55,13 +55,23 @@ const mapStateToProps = ({ diaries }) => ({
 	diaries: diaries
 })
 
-const mapDispatchToProps = {
-	loadDiariesHandle,
-	addDiaryHandle,
-	deleteDiaryHandle,
-	updateDiaryHandle,
-	pageHandle
-}
+const mapDispatchToProps = dispatch => ({
+	loadDiariesHandle: () => {
+		dispatch(loadDiariesAction())
+	},
+	addDiaryHandle: (date, content) => {
+		dispatch(addDiaryAction(date, content))
+	},
+	deleteDiaryHandle: id => {
+		dispatch(deleteDiaryAction(id))
+	},
+	updateDiaryHandle: (id, date, content) => {
+		dispatch(updateDiaryAction(id, date, content))
+	},
+	pageHandle: (page, pageSize) => {
+		dispatch(pageAction(page, pageSize))
+	}
+})
 
 export default connect(
 	mapStateToProps,
