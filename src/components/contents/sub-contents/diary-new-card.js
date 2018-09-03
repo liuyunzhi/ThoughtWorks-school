@@ -33,6 +33,7 @@ class DiaryNewCard extends Component {
 			this.state.date.format('YYYY/MM/DD'),
 			this.state.content
 		)
+		this.setState({ content: '' })
 	}
 
 	render() {
